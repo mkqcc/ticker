@@ -1,13 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: chocolate;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#ticker {
+    font-family: 'Indie Flower', cursive;
+    font-size: 45px;
+    text-align: center;
+}
+
+button {
+    background-color: #586ce6;
+    border: 10px solid;
+    border-radius: 30px;
+    color: #e6d258;
+    font-size: 25px;
+    width: 300px;
+    padding: 6px;
+    margin: 12px;
+    box-shadow: 13px 7px 7px black;
+    display: inline-block;
 }

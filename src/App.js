@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class Ticker extends React.Component {
+    constructor() {
+        super()
+        this.state = {count: 0, paused: true}
+    }
+
+    startTick = () => {
+        this.interval = setInterval(() => {
+            this.setState({count: this.state.count + 1})
+        }, 1000)
+        this.setState({paused: false})
+    }
+
+    stopTick = () => {
+        clearInterval(this.interval)
+        this.setState({paused: true})
+    }
+
+    componentDidMount() {
+        this.startTick()
+    }
+
+    reset = () => {
+        this.setState({count: 0, paused: true})
+        clearInterval(this.interval)
+        return true
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return !this.state.paused && this.reset
+    }
+
+    render() {
+        return (
+            <div className="container">
+                <p id="ticker">The ticker number is: {this.state.count}</p>
+                <button onClick={this.stopTick}>Pause the ticker</button>
+                <button onClick={this.startTick}>Resume the ticker</button>
+                <button onClick={this.reset}>Reset the ticker</button>
+            </div>
+        )
+    }
 }
-
-export default App;
