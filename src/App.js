@@ -29,7 +29,7 @@ export default class Ticker extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return !this.state.paused && this.reset
+        return !this.state.paused
     }
 
     render() {
