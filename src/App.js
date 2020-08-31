@@ -1,21 +1,21 @@
 import React from 'react'
 
 export default class Ticker extends React.Component {
-    constructor() {
-        super()
-        this.state = {count: 0, paused: true}
+    constructor(props) {
+        super(props)
+        this.state = { count: 0, paused: true }
     }
 
     startTick = () => {
         this.interval = setInterval(() => {
-            this.setState({count: this.state.count + 1})
+            this.setState({ count: this.state.count + 1 })
         }, 1000)
-        this.setState({paused: false})
+        this.setState({ paused: false })
     }
 
     stopTick = () => {
         clearInterval(this.interval)
-        this.setState({paused: true})
+        this.setState({ paused: true })
     }
 
     componentDidMount() {
@@ -23,7 +23,7 @@ export default class Ticker extends React.Component {
     }
 
     reset = () => {
-        this.setState({count: 0, paused: true})
+        this.setState({ count: 0, paused: true })
         clearInterval(this.interval)
         return true
     }
